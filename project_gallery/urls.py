@@ -17,13 +17,13 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
-from gallery import views
+from django.urls import path, include
+from django.views.generic import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.gallery_view, name='main'),
-    path('image/<int:pk>/', views.image_detail, name='image_detail'),
+    path('', RedirectView.as_view(url='/gallery/')),  # додано редирект
+    path('gallery/', include('gallery.urls')),
 ]
 
 if settings.DEBUG:
