@@ -12,10 +12,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
-from dotenv import load_dotenv
-load_dotenv()
 
-SECRET_KEY = os.getenv("SECRET_KEY", "default-fallback")
+SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
