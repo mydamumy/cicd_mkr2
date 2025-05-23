@@ -3,7 +3,7 @@ name: mkr2
 on:
   push:
     branches:
-      - main
+      - develop
 
 jobs:
   build-and-test:
