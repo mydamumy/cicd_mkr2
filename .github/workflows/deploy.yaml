@@ -31,6 +31,9 @@ jobs:
         run: |
           python manage.py test
 
+      - name: Run migrations
+        run: python manage.py migrate
+
       - name: Run migrations (check only)
         env:
           DJANGO_SETTINGS_MODULE: project_gallery.settings
